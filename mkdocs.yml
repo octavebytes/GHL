@@ -1,0 +1,106 @@
+site_name: GHL CTI Connector for Amazon Connect Documentation
+site_description: Amazon Connect + GoHighLevel integration by OctaveBytes
+site_author: Octavebytes
+site_url: https://octavebytes.github.io/GHL/
+copyright: "© 2026 Octavebytes. All Rights Reserved."
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.highlight
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/octavebytes/
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/octavebytes
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCA0Le6ELahBzAf-I7jOBuRQ
+    - icon: fontawesome/solid/globe
+      link: https://octavebytes.com
+  generator: false
+
+plugins:
+  - search:
+      lang: en
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Product:
+    - Overview: product/01-product-overview.md
+    - Features: product/02-features.md
+    - Requirements: product/03-requirements.md
+    - Security and privacy: product/04-security-and-privacy.md
+    - FAQ: product/05-faq.md
+  - Users:
+    - Agent guide: user/agent-guide.md
+    - Supervisor guide: user/supervisor-guide.md
+    - Quick reference: user/quick-reference.md
+  - Administration:
+    - Admin guide: admin/admin-guide.md
+    - Settings reference: admin/settings-reference.md
+    - Licence guide: admin/licence-guide.md
+  - Installation and operations:
+    - Installation guide: operations/installation-guide.md
+    - Upgrade and rollback: operations/upgrade-and-rollback.md
+    - Operations runbook: operations/operations-runbook.md
+    - Troubleshooting: operations/troubleshooting.md
+  - Technical:
+    - Architecture: technical/architecture.md
+    - Integration guide: technical/integration-guide.md
+    - Data and retention: technical/data-and-retention.md
+    - API and endpoints: technical/api-and-endpoints.md
+    - Protocol summary: technical/protocol-summary.md
+    - Message protocol: technical/protocol.md
+    - Release notes: technical/release-notes.md
+  - Glossary: glossary.md
