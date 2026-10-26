@@ -2,11 +2,11 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-A factual description of what the connector handles, where it keeps it, and how access is controlled. It describes release v0.2.0 as built; where something has not been tried on a real system, this document says so. It is a description of the software, not a compliance statement, a contract or legal advice, and it does not replace your own risk assessment.
+What the connector handles, where it keeps it and how access is controlled, as built in release v0.2.0. Where something has not been tried on a real system, the text says so. This is a description of the software. It is not a compliance statement, a contract or legal advice, and it does not replace your own risk assessment.
 
 ## Where it runs
 
-The connector runs on a server your organisation controls, ideally in your own AWS account next to your Amazon Connect instance. Calls and recordings stay in your Amazon Connect instance; contact records stay in your GoHighLevel account. **The connector software does not send data to OctaveBytes**: no usage data, no logs, no licence checks. (Support access that you choose to give OctaveBytes is a separate arrangement; see below.)
+The connector runs on a server your organisation controls, ideally in your own AWS account next to your Amazon Connect instance. Calls and recordings stay in your Amazon Connect instance. Contact records stay in your GoHighLevel account. **The connector software does not send data to OctaveBytes**: no usage data, no logs, no licence checks. (Support access that you choose to give OctaveBytes is a separate arrangement; see below.)
 
 ## Data handled
 
@@ -23,7 +23,7 @@ The connector runs on a server your organisation controls, ideally in your own A
 | Administrator accounts | Your administrators | Your server: name, email, role, the authenticator secret (encrypted), recovery codes (stored as hashes only), passkey public keys. |
 | Licence | OctaveBytes | One file on your server. It holds your organisation's name, the GoHighLevel location id, seats and dates. No personal data. |
 
-A switch on the server (`GHL_AI_TEXT=off`) stops everything produced by AI (transcript comment, summary in the note, summary fields) from being written to GoHighLevel; the note keeps the call details and the agent's own note. Administrators can also switch off each part of the record in the console ([settings reference](../admin/settings-reference.md)).
+A switch on the server (`GHL_AI_TEXT=off`) stops everything produced by AI (transcript comment, summary in the note, summary fields) from being written to GoHighLevel. The note keeps the call details and the agent's own note. Administrators can also switch off each part of the record in the console ([settings reference](../admin/settings-reference.md)).
 
 ## What is kept out of logs
 
@@ -46,7 +46,7 @@ Details per file: [Data and retention](../technical/data-and-retention.md).
 
 ## Sign-in
 
-**Agents** do not have a separate password for the connector. When an agent opens GoHighLevel, the call panel asks GoHighLevel who is signed in, and the server checks that this GoHighLevel user is on the agent mapping and belongs to the right sub-account. The agent then signs in to Amazon Connect in the softphone window with their Amazon Connect credentials. The server issues short-lived tokens (15 minutes, renewed every 10 minutes while GoHighLevel stays signed in). A softphone session ends after 12 hours and must be opened again; a call panel whose GoHighLevel sign-in has stopped is disconnected after 35 minutes, never during a call.
+**Agents** do not have a separate password for the connector. When an agent opens GoHighLevel, the call panel asks GoHighLevel who is signed in, and the server checks that this GoHighLevel user is on the agent mapping and belongs to the right sub-account. The agent then signs in to Amazon Connect in the softphone window with their Amazon Connect credentials. The server issues short-lived tokens (15 minutes, renewed every 10 minutes while GoHighLevel stays signed in). A softphone session ends after 12 hours and must be opened again. A call panel whose GoHighLevel sign-in has stopped is disconnected after 35 minutes, never during a call.
 
 **Administrators** sign in to the admin console with a passkey or an authenticator app code. There are no passwords and no shared default account.
 - The first administrator, and every new one, starts with a one-time setup code (single use, 24 hours).
@@ -86,7 +86,7 @@ The connector is designed to support a customer's HIPAA programme. It is **not**
 
 Your responsibilities include: a Business Associate Agreement (BAA) with AWS and with GoHighLevel where required, encryption of the server disk and recording storage, backups, operating-system patching, access to the server, agent device security, your risk analysis and policies.
 
-**A BAA with OctaveBytes.** OctaveBytes does not offer the connector as a hosted service: it is installed and runs in your environment, the data stays in your accounts and remains yours, and OctaveBytes does not receive or store it. For that reason a BAA with OctaveBytes is not normally required for the software itself. Whether one is needed depends on your own assessment, for example if OctaveBytes staff will have access to your systems or data for installation or support. OctaveBytes is open to signing a BAA where a customer needs one; ask [support@octavebytes.com](mailto:support@octavebytes.com).
+**A BAA with OctaveBytes.** OctaveBytes does not offer the connector as a hosted service: it is installed and runs in your environment, the data stays in your accounts and remains yours, and OctaveBytes does not receive or store it. For that reason a BAA with OctaveBytes is not normally required for the software itself. Whether one is needed depends on your own assessment, for example if OctaveBytes staff will have access to your systems or data for installation or support. OctaveBytes is open to signing a BAA where a customer needs one. Ask [support@octavebytes.com](mailto:support@octavebytes.com).
 
 ## Not yet verified on a real system
 

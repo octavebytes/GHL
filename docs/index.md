@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-The customer documentation for the GHL CTI Connector for Amazon Connect, by OctaveBytes. Start with the product overview, then the guide for your role. Words used in these documents are explained once in the [glossary](glossary.md).
+Documentation for the GHL CTI Connector for Amazon Connect, by OctaveBytes. Start with the product overview, then read the guide for your role. Words used in these documents are explained once in the [glossary](glossary.md).
 
 Each feature is marked with its status:
 

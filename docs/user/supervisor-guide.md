@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-What supervisors can do with release v0.2.0. The connector does not add its own supervisor screens: live monitoring uses Amazon Connect's own tools, and the connector makes sure it works cleanly alongside them. Team leads who also manage settings or seats use the [admin guide](../admin/admin-guide.md).
+What supervisors can do with release v0.2.0. The connector does not add its own supervisor screens: live monitoring uses Amazon Connect's own tools, and the connector works alongside them. Team leads who also manage settings or seats use the [admin guide](../admin/admin-guide.md).
 
 ## Listen in and barge in (Amazon Connect)
 

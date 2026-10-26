@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-How the GHL CTI Connector for Amazon Connect is built: components, data flow and trust boundaries. For security commitments see [security and privacy](../product/04-security-and-privacy.md).
+How the connector is built: components, data flow and trust boundaries. For security commitments see [security and privacy](../product/04-security-and-privacy.md).
 
 ## Components
 

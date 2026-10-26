@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-For engineers who want to understand how the connector is cut so that another CRM can be added. Release v0.2.0 ships one CRM, GoHighLevel. This guide describes the seams that exist in the code today; it is not a promise that other CRMs are supported.
+For engineers who need to see where another CRM would plug in. Release v0.2.0 ships one CRM, GoHighLevel. The guide describes the seams that exist in the code today. It does not promise support for other CRMs.
 
 ## The idea
 
@@ -33,7 +33,7 @@ flowchart LR
 
 ## 1. The CRM adapter port
 
-Defined in `packages/connector-core/src/adapter.ts` (`CrmAdapter`). The GoHighLevel implementation is `backend/crm/ghl.js`; all GoHighLevel API calls live there.
+Defined in `packages/connector-core/src/adapter.ts` (`CrmAdapter`). The GoHighLevel implementation is `backend/crm/ghl.js`. All GoHighLevel API calls live there.
 
 | Method | Purpose |
 |---|---|
@@ -46,17 +46,17 @@ Defined in `packages/connector-core/src/adapter.ts` (`CrmAdapter`). The GoHighLe
 | `recordUrl`, `locationId`, `trustedDomains` | Links to records, the account scope for the panel, and the web domains allowed to call the server. |
 | `health()` | Token and installation state for `/health`. |
 
-Rules for an adapter: one call per write (no own retries; the core retries); throw on failure; never touch telephony; never log personal data.
+Rules for an adapter: one call per write (no own retries; the core retries). Throw on failure. Never touch telephony. Never log personal data.
 
 A fake adapter with switchable failures (`createFakeAdapter` in `packages/connector-core/src/fake-adapter.ts`) is used by the core's tests and is the model to test a new adapter against.
 
 ## 2. The policy
 
-`packages/connector-core/src/policy.ts` lists the questions the core asks at the moment it acts (may this agent dial? is wrap-up on? which dispositions? write the note?). It contains no setting names. A product maps its settings onto these questions; for GoHighLevel that is `backend/platform/policy.js`. A call keeps the logging answers it started with.
+`packages/connector-core/src/policy.ts` lists the questions the core asks at the moment it acts (may this agent dial? is wrap-up on? which dispositions? write the note?). It contains no setting names. A product maps its settings onto these questions. For GoHighLevel that is `backend/platform/policy.js`. A call keeps the logging answers it started with.
 
 ## 3. The host shell port
 
-Defined in `packages/bar-core/src/shell.ts` (`HostShell`). The GoHighLevel shell is `shells/ghl/shell.js`. It provides: the server's address and the CRM's name; small storage; the session proof; the account and page kind; a self-test of the page elements it relies on; the open record; safe page refresh; opening a record; intercepting the CRM's own call buttons (`onDialRequest`); and opening the softphone window synchronously (pop-up blockers).
+Defined in `packages/bar-core/src/shell.ts` (`HostShell`). The GoHighLevel shell is `shells/ghl/shell.js`. It provides: the server's address and the CRM's name. Small storage. The session proof. The account and page kind. A self-test of the page elements it relies on. The open record. Safe page refresh. Opening a record. Intercepting the CRM's own call buttons (`onDialRequest`). And opening the softphone window synchronously (pop-up blockers).
 
 The call panel (`packages/bar-core`), its state rules (`packages/bar-state`), the colours (`packages/skins`) and the connection (`packages/transports`) are shared. `tools/gen-bar-bundle.mjs` builds `bundle/bar.js` from them plus the shell; `npm run check` fails if the committed bundle is out of date.
 

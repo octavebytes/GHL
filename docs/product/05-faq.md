@@ -56,7 +56,7 @@ One softphone window per agent at a time. A second window, on the same or anothe
 ## Seats and licence
 
 **What is a seat?**
-One open softphone window, whatever the agent's status, including Offline. If you have 10 seats, 10 agents can have the softphone open at once; you can have more agents than seats.
+One open softphone window, whatever the agent's status, including Offline. If you have 10 seats, 10 agents can have the softphone open at once. You can have more agents than seats.
 
 **What happens when all seats are in use?**
 The next agent who opens the softphone is told that all seats are in use. Nobody already signed in is affected.
@@ -73,7 +73,7 @@ No. It is checked on your server only.
 People invited to the admin console as administrators. Read-only people can look but not change.
 
 **Do settings changes affect calls in progress?**
-No. A call keeps the settings it started with; changes apply from the next call.
+No. A call keeps the settings it started with. Changes apply from the next call.
 
 **Can we switch the connector off quickly?**
 Yes. Switch off *Connector switched on* in the console (Settings, Advanced) and save. Every call panel disappears within about a minute and GoHighLevel's own dialler works again. Calls in progress finish and are logged.

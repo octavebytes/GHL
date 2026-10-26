@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-How to take and place calls from GoHighLevel with the GHL CTI Connector for Amazon Connect. Your administrator may have switched some features off; if a button described here is missing, that is why. One page summary: [quick reference card](quick-reference.md).
+How to take and place calls from GoHighLevel. Your administrator may have switched some features off. If a button described here is missing, that is why. One page summary: [quick reference card](quick-reference.md).
 
 ## Before you start
 
@@ -114,7 +114,7 @@ After the call the panel shows "Call ended" and a wrap-up step:
 2. Type a note if you want (**Notes (optional)**).
 3. Click **Save & Done**. Amazon Connect ends the wrap-up and you can take the next call.
 
-Your administrator may require a disposition or a note; the panel will not finish wrap-up without them. The list of dispositions can differ for inbound and outbound calls.
+Your administrator may require a disposition or a note. The panel will not finish wrap-up without them. The list of dispositions can differ for inbound and outbound calls.
 
 ![Wrap-up with a disposition and notes](../screenshots/ghl/10-wrap-up.png)
 
@@ -130,9 +130,9 @@ Depending on your organisation's settings, the contact receives:
 - the call transcript as an internal comment;
 - the AI summary as a comment and in the contact's "Last call summary" and "Last call sentiment" fields.
 
-The **Summary** tab shows "Generating summary…", then the summary and where it was saved. Very short calls get no summary. If the summary could not be made, the tab says so; the rest of the call record is not affected.
+The **Summary** tab shows "Generating summary…", then the summary and where it was saved. Very short calls get no summary. If the summary could not be made, the tab says so. The rest of the call record is not affected.
 
-If GoHighLevel cannot be reached, the panel says "Not logged yet, retrying:" and the server keeps trying. You do not need to do anything; the call is written once when GoHighLevel is back.
+If GoHighLevel cannot be reached, the panel says "Not logged yet, retrying:" and the server keeps trying. You do not need to do anything. The call is written once when GoHighLevel is back.
 
 ![The "Saved to GHL" strip](../screenshots/ghl/11-logged-saved.png)
 

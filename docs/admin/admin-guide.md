@@ -2,9 +2,9 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-For the people who run the GHL CTI Connector for Amazon Connect day to day: change settings, watch seats, install the licence and manage who can sign in. The admin console exists only when the platform is switched on (see the [installation guide](../operations/installation-guide.md#8-switch-the-platform-on-and-create-the-first-administrator)).
+For the people who run the connector day to day. Use the console to change settings, watch seats, install the licence and manage who can sign in. The admin console exists only when the platform is switched on (see the [installation guide](../operations/installation-guide.md#8-switch-the-platform-on-and-create-the-first-administrator)).
 
-The console header, passkey prompts and your authenticator app show the product name, "GHL CTI Connector for Amazon Connect". Authenticator entries made on an earlier release show the old name, "Amazon Connect for GoHighLevel"; they keep working. Screenshots in this guide were taken with a demonstration product and show "Demo Product" in the header and different settings; the layout is the same. Screenshots of the real product are still to be taken (list).
+The console header, passkey prompts and your authenticator app show the product name, "GHL CTI Connector for Amazon Connect". Authenticator entries made on an earlier release show the old name, "Amazon Connect for GoHighLevel". They keep working. Screenshots in this guide were taken with a demonstration product and show "Demo Product" in the header and different settings. The layout is the same.
 
 ## Where the console is
 
@@ -35,7 +35,7 @@ Your installer runs a command on the server that prints a **setup code** for you
 
 If sign-in fails you see "Sign-in failed. Check the details and try again, or wait a few minutes." The same message is used for every failure, so it does not reveal which part was wrong. Check: the email address, the right entry in the authenticator app (each system you use has its own entry), and that your phone's clock is set automatically. Five failures lock the account for 15 minutes.
 
-Your session ends after 30 minutes without activity, and after 8 hours at most. Settings you saved stay in effect; agents are not affected.
+Your session ends after 30 minutes without activity, and after 8 hours at most. Settings you saved stay in effect. Agents are not affected.
 
 **Confirm it is you.** Some actions ask for a fresh code or your passkey if your last check was more than 10 minutes ago: installing a licence, inviting, changing or removing administrators, changing sign-in methods, and ending the session of an agent who is on a call.
 
@@ -47,7 +47,7 @@ The menu has two groups. **Settings**: Calling, Wrap-up, Conversation logging, A
 
 ## 4. Settings
 
-Each settings page lists switches, lists and choices with a short explanation. Every setting is enforced by the server, not only hidden on screen. The full list with keys, defaults and where each is enforced is in the [settings reference](settings-reference.md); the summary below says what each page is for.
+Each settings page lists switches, lists and choices with a short explanation. Every setting is enforced by the server, not only hidden on screen. The full list with keys, defaults and where each is enforced is in the [settings reference](settings-reference.md). The summary below says what each page is for.
 
 **How saving works**
 - Changes are drafts until you save. Changed rows are marked, the menu shows a dot on pages with unsaved changes, and a bar at the bottom says "N unsaved changes. Nothing changes for your agents until you save." with **Discard** and **Save changes**.
@@ -57,13 +57,13 @@ Each settings page lists switches, lists and choices with a short explanation. E
 - A saved change reaches every open call panel at once. A call in progress keeps the settings it started with.
 - A setting indented under another has no effect while the one above it is off. Settings marked **Planned** cannot be switched on in this release.
 
-**Calling.** Whether agents can place calls and choose the outbound queue; screen pop; which in-call controls appear (Hold and resume, Keypad, Mute; Transfer is Planned); whether missed calls are recorded.
+**Calling.** Decide whether agents can place calls and pick the outbound queue, whether the contact opens when a call rings, which in-call controls appear (Hold and resume, Keypad, Mute) and whether missed calls are recorded. Transfer is Planned.
 
 ![The Calling settings page](../screenshots/console/01-settings-calling.png)
 
 *Figure: The Calling settings page.*
 
-**Wrap-up.** Whether there is a wrap-up step; whether a disposition and a note are shown or required; the disposition lists for inbound and outbound calls. To edit a list, type in "Add an entry" and press **Add**, or remove an entry with its ×. Up to 30 entries of up to 40 characters. Removing an entry affects future calls only.
+**Wrap-up.** Turn the wrap-up step on or off, show or require a disposition and a note, and keep the disposition lists for inbound and outbound calls. To edit a list, type in "Add an entry" and press **Add**, or remove an entry with its ×. Up to 30 entries of up to 40 characters. Removing an entry affects future calls only.
 
 ![The Wrap-up page with one unsaved change; nothing changes for agents until Save changes](../screenshots/console/02-settings-wrapup-unsaved.png)
 
@@ -83,7 +83,7 @@ The shipped lists are Interested, Callback requested, Not interested, No answer,
 
 *Figure: The AI assist page, with the Planned switch locked.*
 
-**Advanced.** *Connector switched on* (the master switch: off removes every call panel within about a minute and refuses new softphone sign-ins; calls in progress finish and are logged); the starting view of the call panel (full or compact); refreshing the contact page after a call is saved; creating contacts for unknown callers.
+**Advanced.** *Connector switched on* is the master switch. Off removes every call panel within about a minute and refuses new softphone sign-ins. Calls in progress finish and are logged. The page also sets the starting view of the call panel (full or compact), whether the contact page refreshes after a call is saved, and whether contacts are created for unknown callers.
 
 ![The Advanced page](../screenshots/console/05-settings-advanced.png)
 
@@ -105,7 +105,7 @@ Before switching anything off that changes what is stored, check with whoever ow
 2. Confirm: "Sign *name* out?" → **Yes, sign out**. If the agent is on a call you see "*name* is on a call. Signing them out ends it." and the button is **End the call and sign out**; you are also asked to confirm it is you.
 3. The agent's softphone shows "An administrator ended your softphone session. Open the softphone again from the call bar."
 
-Seats also free themselves: a closed softphone window after about 45 seconds; a silent idle one after about 3 minutes; one that dropped during a call after up to 15 minutes, so the agent can come back to their call.
+Seats also free themselves. A closed softphone window gives up its seat after about 45 seconds and a silent idle one after about 3 minutes. A window that dropped during a call keeps it for up to 15 minutes, so the agent can come back to the call.
 
 ## 6. Licence
 
@@ -148,7 +148,7 @@ Changes here ask you to confirm it is you. You cannot remove your last way to si
 
 ## 10. Agent mapping (on the server, not in the console)
 
-Which GoHighLevel users get a call panel is decided by the agent mapping file on the server, `backend/config/agents.json`. Each line links a GoHighLevel email address (lower case) to an Amazon Connect user name. Your server administrator edits it; changes apply at the agent's next sign-in, with no restart. An agent missing from it sees "*email* is not linked to an Amazon Connect agent. Ask your administrator to add you." See the [installation guide](../operations/installation-guide.md#6-link-agents).
+Which GoHighLevel users get a call panel is decided by the agent mapping file on the server, `backend/config/agents.json`. Each line links a GoHighLevel email address (lower case) to an Amazon Connect user name. Your server administrator edits it. Changes apply at the agent's next sign-in, with no restart. An agent missing from it sees "*email* is not linked to an Amazon Connect agent. Ask your administrator to add you." See the [installation guide](../operations/installation-guide.md#6-link-agents).
 
 ## 11. Locked out
 

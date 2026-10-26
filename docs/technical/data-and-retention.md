@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-Every place the GHL CTI Connector for Amazon Connect keeps data, what it holds, and how long. Paths are under `/opt/ob-ghl-connector/backend/` unless stated. "Retention" means automatic deletion by the connector; anything without it is kept until you delete it. Summary for non-technical readers: [security and privacy](../product/04-security-and-privacy.md).
+Every place the connector keeps data, what it holds and for how long. Paths are under `/opt/ob-ghl-connector/backend/` unless stated. "Retention" means automatic deletion by the connector. Anything without it is kept until you delete it. Summary for non-technical readers: [security and privacy](../product/04-security-and-privacy.md).
 
 ## On your server
 
@@ -35,7 +35,7 @@ Retention runs at start and every six hours. `RETENTION_DAYS` unset or 0 deletes
 - Caller card details (cached for about 15 seconds), the live call state per agent, live Amazon Q suggestions and Ask Q answers, console sessions.
 - The live transcript, when `PERSIST_TRANSCRIPT=off`.
 
-A restart clears these; agents' panels and softphones reconnect and the state is rebuilt from the softphone.
+A restart clears these. Agents' panels and softphones reconnect and the state is rebuilt from the softphone.
 
 ## In the agent's browser
 
@@ -49,7 +49,7 @@ No cookies are set by the connector.
 
 ## In GoHighLevel (your account)
 
-Depending on the [settings](../admin/settings-reference.md): the note, the "Call completed" entry with the recording link, the transcript comment, the AI summary comment, and the contact fields "Last call summary" and "Last call sentiment"; contacts created for unknown callers (tagged so they can be found). These are kept and deleted under your GoHighLevel account's rules. `GHL_AI_TEXT=off` stops every AI-produced text from being written there.
+Depending on the [settings](../admin/settings-reference.md): the note, the "Call completed" entry with the recording link, the transcript comment, the AI summary comment, and the contact fields "Last call summary" and "Last call sentiment". Contacts created for unknown callers (tagged so they can be found). These are kept and deleted under your GoHighLevel account's rules. `GHL_AI_TEXT=off` stops every AI-produced text from being written there.
 
 ## In Amazon Connect (your account)
 

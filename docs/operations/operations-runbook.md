@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-Day-to-day running of the GHL CTI Connector for Amazon Connect: checks, logs, backups and the usual incidents. Commands run on the server as root unless stated. Paths are under `/opt/ob-ghl-connector/backend/`. Never copy the contents of `.env`, `data/` or `config/` into email, chat or tickets.
+Day-to-day running of the connector: checks, logs, backups and the usual incidents. Commands run on the server as root unless stated. Paths are under `/opt/ob-ghl-connector/backend/`. Never copy the contents of `.env`, `data/` or `config/` into email, chat or tickets.
 
 ## Where things are
 
@@ -35,7 +35,7 @@ Day-to-day running of the GHL CTI Connector for Amazon Connect: checks, logs, ba
 | Certificate | `systemctl list-timers \| grep certbot` | a renewal timer is scheduled |
 | Console | `/admin/` → Agents and Licence | seats as expected; licence Valid |
 
-The detailed check needs `ADMIN_TOKEN` (16+ characters) in `.env`; it is rate-limited and every use is audited.
+The detailed check needs `ADMIN_TOKEN` (16+ characters) in `.env`. It is rate-limited and every use is audited.
 
 ## Logs
 
@@ -92,7 +92,7 @@ Symptom: an agent is refused ("No softphone seat is free right now…") but nobo
 - **Platform on:** console → Settings → Advanced → switch off *Connector switched on* → **Save changes**.
 - **Platform off:** set `{"enabled": false}` in `config/settings.json` (no restart).
 
-Every call panel disappears within about a minute and GoHighLevel's own dialler works again. Calls in progress finish in the softphone window and are logged. Switch on again the same way; panels come back without a reload.
+Every call panel disappears within about a minute and GoHighLevel's own dialler works again. Calls in progress finish in the softphone window and are logged. Switch on again the same way. Panels come back without a reload.
 
 Emergency without the server: remove the `loader.js` line from GoHighLevel Custom JS and ask agents to reload.
 

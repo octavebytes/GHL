@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-GHL CTI Connector for Amazon Connect, for agents. Full guide: [agent guide](agent-guide.md).
+A one-page summary for agents. Full guide: [agent guide](agent-guide.md).
 
 **Start of day**
 1. Sign in to GoHighLevel in Chrome.

@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-For the server administrator who installs the GHL CTI Connector for Amazon Connect for one organisation and one GoHighLevel sub-account. Read [requirements](../product/03-requirements.md) first. Every value below is an example: `cti.example.com` stands for your connector's address.
+For the server administrator who installs the connector for one organisation and one GoHighLevel sub-account. Read [requirements](../product/03-requirements.md) first. Every value below is an example: `cti.example.com` stands for your connector's address.
 
 Status of these steps: the build, packaging, update and platform steps were used on the OctaveBytes test system. The first-time setup script (`server-setup.sh`) was written for a shared server and checked by reading, but the test system's port and certificate were set up by hand, so treat its first run as a rehearsal and read its output.
 
@@ -45,7 +45,7 @@ The script only adds things: a service user `obghl`, the folder `/opt/ob-ghl-con
 
 ## 4. Fill in the environment file
 
-Edit `/opt/ob-ghl-connector/backend/.env` (template: `deploy/env.production.example`). It is readable only by root and the service user; keep it so. Changes need a restart.
+Edit `/opt/ob-ghl-connector/backend/.env` (template: `deploy/env.production.example`). It is readable only by root and the service user. Keep it so. Changes need a restart.
 
 **Hosting**
 
@@ -117,7 +117,7 @@ The role or key needs the permissions in `deploy/iam-policy.json` (read contact 
 | `ADMIN_RP_ID` | The domain passkeys are tied to. Default: the host of `BACKEND_ORIGIN`. Changing the address later means administrators add their passkeys again. |
 | `ADMIN_SECRET` | Optional, 32+ characters; signs console sessions. If unset, a random one is kept in `backend/data/admin-secret.key`. |
 
-**Other**: `DEFAULT_COUNTRY` (two letters, default `US`) is the country assumed for numbers typed without a country code. `TRANSCRIPT`, `ASSIST` and `AUTO_CREATE_UNKNOWN` (`off`) switch features off when the platform is off; with the platform on, use the console instead. `DATA_DIR`, `CONFIG_DIR` and `ENV_FILE` move the data folder, the configuration folder and the environment file. Leave `DEV_MODE`, `DEBUG_PANEL`, `HOLD_MS`, `RETRY_BASE_MS`, `RECONCILE_MS` and `GHL_BASE` unset: they are for development and tests.
+**Other**: `DEFAULT_COUNTRY` (two letters, default `US`) is the country assumed for numbers typed without a country code. `TRANSCRIPT`, `ASSIST` and `AUTO_CREATE_UNKNOWN` (`off`) switch features off when the platform is off. With the platform on, use the console instead. `DATA_DIR`, `CONFIG_DIR` and `ENV_FILE` move the data folder, the configuration folder and the environment file. Leave `DEV_MODE`, `DEBUG_PANEL`, `HOLD_MS`, `RETRY_BASE_MS`, `RECONCILE_MS` and `GHL_BASE` unset: they are for development and tests.
 
 ## 5. Connect Amazon Connect and GoHighLevel
 
@@ -132,7 +132,7 @@ Do these in order.
    <script src="https://cti.example.com/loader.js" async></script>
    ```
 
-   The editor sometimes duplicates the closing `</script>`; check the end of the line. Save, and confirm the third-party scripts warning (**Proceed**). Agents reload GoHighLevel.
+   The editor sometimes duplicates the closing `</script>`. Check the end of the line. Save, and confirm the third-party scripts warning (**Proceed**). Agents reload GoHighLevel.
 
 ## 6. Link agents
 
@@ -189,7 +189,7 @@ To make another setup code later (for example when every administrator is locked
 | 7 | `/admin/` | sign-in works; Agents shows the seat; Licence shows Valid |
 | 8 | `curl -I https://cti.example.com/engine.html` | `referrer-policy: strict-origin` and no `camera=()` in `permissions-policy` (see [troubleshooting](troubleshooting.md#the-softphone-window-keeps-going-back-to-sign-in-or-says-refused-to-connect)) |
 
-Use test contacts and test calls only; no real patient data during installation.
+Use test contacts and test calls only. No real patient data during installation.
 
 ## 10. Undo the installation
 

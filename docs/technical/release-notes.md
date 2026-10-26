@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-Changes to the GHL CTI Connector for Amazon Connect, newest first. Versions follow the git tags of the source repository.
+Changes to the connector, newest first. Versions follow the git tags of the source repository.
 
 ## Since v0.2.0 (not yet released)
 
@@ -36,7 +36,7 @@ Installed on the OctaveBytes test system on 25 October 2026 with the platform sw
 
 **Verified on the test system with v0.2.0:** installation from the package, softphone sign-in, a call with mute and hold/resume, administrator sign-in with an authenticator app and a passkey, the Licence page and installing a licence there, editing the disposition lists and seeing them in the call panel.
 
-**Not verified on a real system with v0.2.0** (automated tests only): missed calls, unknown callers, wrap-up with required disposition, the recording player, AI summary and transcript comment, service restart during a call, refusal when all seats are used, force logout, a browser closed or laptop lid shut during a call, switching features off and the server refusing them. Most of these worked on the test system with the earlier build; see the status column in [Features](../product/02-features.md).
+**Not verified on a real system with v0.2.0** (automated tests only): missed calls, unknown callers, wrap-up with required disposition, the recording player, AI summary and transcript comment, service restart during a call, refusal when all seats are used, force logout, a browser closed or laptop lid shut during a call, switching features off and the server refusing them. Most of these worked on the test system with the earlier build. See the status column in [Features](../product/02-features.md).
 
 **Known limitations**
 - Call transfer and AI disposition suggestion are not available (shown as Planned).

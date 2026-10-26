@@ -2,9 +2,9 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-Every feature of release v0.2.0, in plain words, with its status. Status words are defined in the [documentation index](../index.md): **Live** (used on the test system with v0.2.0), **Live (earlier build)** (used on the test system with the build before v0.2.0, not tried again since), **Built and tested** (automated tests only), **Planned** (not in this release).
+Every feature in release v0.2.0 and its status. Status words are defined in the [documentation index](../index.md): **Live** (used on the test system with v0.2.0), **Live (earlier build)** (used on the test system with the build before v0.2.0, not tried again since), **Built and tested** (automated tests only), **Planned** (not in this release).
 
-Features that an administrator can switch off are marked "Setting:" with the setting's name; see the [settings reference](../admin/settings-reference.md).
+Features that an administrator can switch off are marked "Setting:" with the setting's name. See the [settings reference](../admin/settings-reference.md).
 
 ## Calling in the CRM
 

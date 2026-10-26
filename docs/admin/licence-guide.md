@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-How your organisation receives, installs and renews the licence for the GHL CTI Connector for Amazon Connect, and what the licence states and notices mean. The licence applies only when the platform is switched on.
+How your organisation receives, installs and renews the connector licence, and what the licence and its notices mean. The licence applies only when the platform is switched on.
 
 ## What a licence is
 
@@ -42,9 +42,9 @@ After installing, agents who were refused can open the softphone again from the 
 
 ## Renewing
 
-OctaveBytes issues licences for a fixed period. Before the end date, ask OctaveBytes for a renewal and install the new file in the same way. A renewal can also change the number of seats. Installing the renewal replaces the old licence at once; nobody is signed out.
+OctaveBytes issues licences for a fixed period. Before the end date, ask OctaveBytes for a renewal and install the new file in the same way. A renewal can also change the number of seats. Installing the renewal replaces the old licence at once. Nobody is signed out.
 
-If you install a licence with **fewer** seats than are in use, agents already signed in carry on; new softphone windows are refused until the number in use is below the new limit.
+If you install a licence with **fewer** seats than are in use, agents already signed in carry on. New softphone windows are refused until the number in use is below the new limit.
 
 ## States and what they mean
 

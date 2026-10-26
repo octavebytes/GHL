@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-A short guide to the messages between the call panel, the connector server and the softphone window. The complete, generated reference with every field is [protocol.md](protocol.md); it is produced from the code and checked on every build, so it is always current.
+A short guide to the messages between the call panel, the connector server and the softphone window. The complete, generated reference with every field is [protocol.md](protocol.md). It is generated from the code and checked on every build.
 
 ## Transport
 

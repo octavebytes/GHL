@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-Symptom, cause and fix for problems seen with the GHL CTI Connector for Amazon Connect. Agent-facing messages are listed in the [agent guide](../user/agent-guide.md#10-common-messages-and-what-to-do). Start with the service log: `journalctl -u ob-ghl-connector -n 100 --no-pager`.
+Symptom, cause and fix for the problems seen so far. Agent-facing messages are listed in the [agent guide](../user/agent-guide.md#10-common-messages-and-what-to-do). Start with the service log: `journalctl -u ob-ghl-connector -n 100 --no-pager`.
 
 ## Softphone
 
@@ -28,7 +28,7 @@ Symptom, cause and fix for problems seen with the GHL CTI Connector for Amazon C
 ### "This Amazon Connect user is not the agent linked to your GoHighLevel account (…)"
 
 **Cause:** the agent signed in to Amazon Connect as another user, or the agent mapping points at the wrong Amazon Connect user name.
-**Fix:** sign out of Amazon Connect in the softphone window and sign in as the right user; or correct `config/agents.json`.
+**Fix:** sign out of Amazon Connect in the softphone window and sign in as the right user. Or correct `config/agents.json`.
 
 ### "The softphone is already open in another window or computer. Close this one."
 
@@ -52,11 +52,11 @@ Symptom, cause and fix for problems seen with the GHL CTI Connector for Amazon C
 
 ### The panel stays on "Reconnecting…"
 
-**Cause:** the browser cannot keep the WebSocket connection to `/relay`. **Fix:** check the service is running; check nginx passes WebSocket upgrades and long timeouts (installation guide, step 3); check company proxies allow WebSocket.
+**Cause:** the browser cannot keep the WebSocket connection to `/relay`. **Fix:** check the service is running. Check nginx passes WebSocket upgrades and long timeouts (installation guide, step 3). Check company proxies allow WebSocket.
 
 ### Click-to-call opens GoHighLevel's own dialler
 
-**Cause:** the softphone is not open ("Softphone off"), or GoHighLevel changed its page. **Fix:** open the softphone; if it persists, look for `HOOK SELF-TEST: missing` in the log and tell [support@octavebytes.com](mailto:support@octavebytes.com). Agents can still dial from the panel.
+**Cause:** the softphone is not open ("Softphone off"), or GoHighLevel changed its page. **Fix:** open the softphone. If it persists, look for `HOOK SELF-TEST: missing` in the log and tell [support@octavebytes.com](mailto:support@octavebytes.com). Agents can still dial from the panel.
 
 ## Call records
 
@@ -69,11 +69,11 @@ Symptom, cause and fix for problems seen with the GHL CTI Connector for Amazon C
 
 ### No "Call completed" entry or no recording player
 
-**Cause:** the Marketplace app is not installed (no `data/oauth.json`) or `GHL_PROVIDER_ID` is empty; or *Attach the recording to the call entry* is off. The note is still written.
+**Cause:** the Marketplace app is not installed (no `data/oauth.json`) or `GHL_PROVIDER_ID` is empty. Or *Attach the recording to the call entry* is off. The note is still written.
 
 ### The recording player shows 0:00
 
-**Cause:** the viewer is not signed in to Amazon Connect with permission to hear recordings (the connector does not make recordings public); or the call entry was created before Amazon Connect finished saving the recording. The connector waits up to 25 seconds for the recording when it has AWS access keys; with `AWS_AUTH=role` it does not wait in this release. **Fix:** sign in to Amazon Connect in the same browser and reload.
+**Cause:** the viewer is not signed in to Amazon Connect with permission to hear recordings (the connector does not make recordings public). Or the call entry was created before Amazon Connect finished saving the recording. The connector waits up to 25 seconds for the recording when it has AWS access keys. With `AWS_AUTH=role` it does not wait in this release. **Fix:** sign in to Amazon Connect in the same browser and reload.
 
 ### No AI summary or transcript
 
@@ -120,7 +120,7 @@ A passkey needs neither the code nor the lock wait, but it needs the same domain
 
 ### "The admin area is only available over https."
 
-**Cause:** the console was opened over plain HTTP, or nginx does not pass `X-Forwarded-Proto`. **Fix:** use the HTTPS address; keep `HOST=127.0.0.1` and the nginx header lines from the template.
+**Cause:** the console was opened over plain HTTP, or nginx does not pass `X-Forwarded-Proto`. **Fix:** use the HTTPS address. Keep `HOST=127.0.0.1` and the nginx header lines from the template.
 
 ### "This request did not come from the admin page."
 

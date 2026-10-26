@@ -19,7 +19,7 @@ It is made by OctaveBytes and runs on a server your organisation controls. Your 
 
 Without it, agents switch between the Amazon Connect softphone and GoHighLevel: they look the caller up by hand, copy numbers to dial, and type call notes afterwards. Notes get missed, the CRM shows no record of the call, and supervisors cannot see what was said.
 
-With it:
+With the connector:
 - the phone is part of GoHighLevel, on every page;
 - the right contact opens when a call rings, and a contact is created for a new number;
 - every call leaves a note and a "Call completed" entry with the recording on the contact, written once even if a network or server problem interrupts it;
@@ -52,7 +52,7 @@ flowchart LR
 3. The **connector** on your server passes call events between the panel and the softphone, looks the caller up in GoHighLevel, and after the call writes the note, the call entry and the AI summary to the contact.
 4. **Administrators** use the admin console on the same server to change settings, manage seats and install the licence.
 
-What it does not do: it does not host your data at OctaveBytes, it does not contact OctaveBytes to check the licence, and it does not replace Amazon Connect's own tools for supervisors and reporting.
+It does not host your data at OctaveBytes. It does not contact OctaveBytes to check the licence. It does not replace Amazon Connect's own tools for supervisors and reporting.
 
 ## Release and status
 

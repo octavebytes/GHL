@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-What you need before the connector can be installed and used. "Tested with" means used on the OctaveBytes test system; anything else is not yet verified.
+What you need before the connector can be installed and used. "Tested with" means used on the OctaveBytes test system. Anything else is not yet verified.
 
 ## Agent computers and browsers
 

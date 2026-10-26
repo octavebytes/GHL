@@ -2,7 +2,7 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-How to install a new release of the GHL CTI Connector for Amazon Connect, and how to go back. Status: **Live**: this procedure was used to install v0.2.0 on the OctaveBytes test system.
+How to install a new release, and how to go back. Status: **Live**: this procedure was used to install v0.2.0 on the OctaveBytes test system.
 
 ## What an update keeps
 
@@ -50,7 +50,7 @@ Example configuration files in the package are refreshed beside your own.
    journalctl -u ob-ghl-connector -n 12 --no-pager
    ```
 
-   `VERSION` shows the new version and commit; the status answers `{"ok":true,"enabled":true}`; with the platform on, the log shows `[platform] on: licence valid …`.
+   `VERSION` shows the new version and commit. The status answers `{"ok":true,"enabled":true}`. With the platform on, the log shows `[platform] on: licence valid …`.
 4. Agents reload GoHighLevel and, if their softphone window closed, open it again from the call panel.
 
 First confirm which release the server really runs (`VERSION`) before comparing behaviour between releases.
@@ -72,7 +72,7 @@ systemctl start ob-ghl-connector
 curl -s http://127.0.0.1:4320/health
 ```
 
-The platform packages in `/opt/ob-ghl-connector/node_modules/@octavebytes/` stay at the newer version with this method. Status: **not tried**; the reinstall method above is the one to use.
+The platform packages in `/opt/ob-ghl-connector/node_modules/@octavebytes/` stay at the newer version with this method. Status: **not tried**. The reinstall method above is the one to use.
 
 Whichever method you use:
 - Do not use `tar --no-same-owner` without fixing the owners afterwards: files owned only by root cannot be read by the service user, and the softphone window then stays blank.

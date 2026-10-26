@@ -2,9 +2,9 @@
 
 Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
 
-The addresses the connector server answers on, for network, firewall and security reviews. All are served through nginx over HTTPS on the connector's address. These endpoints serve the call panel, the softphone window and the admin console; they are not a general-purpose API for other systems, and their request and response shapes may change between releases. The WebSocket messages are described in the [protocol summary](protocol-summary.md).
+The addresses the connector server answers on, for network, firewall and security reviews. All are served through nginx over HTTPS on the connector's address. These endpoints serve the call panel, the softphone window and the admin console. They are not a general-purpose API for other systems, and their request and response shapes may change between releases. The WebSocket messages are described in the [protocol summary](protocol-summary.md).
 
-Common behaviour: responses are JSON with `ok` and, on failure, a `code` and a plain `message`; nothing is cached (`Cache-Control: no-store`); security headers (HSTS, `X-Content-Type-Options`, `X-Frame-Options: DENY`, `Referrer-Policy`, `Permissions-Policy`) are sent on every response. Browser requests from an origin that is not allowed are refused with 403.
+Common behaviour: responses are JSON with `ok` and, on failure, a `code` and a plain `message`. Nothing is cached (`Cache-Control: no-store`). Security headers (HSTS, `X-Content-Type-Options`, `X-Frame-Options: DENY`, `Referrer-Policy`, `Permissions-Policy`) are sent on every response. Browser requests from an origin that is not allowed are refused with 403.
 
 ## Pages and files
 
@@ -51,7 +51,7 @@ Common behaviour: responses are JSON with `ok` and, on failure, a `code` and a p
 
 ## Admin API (`/admin/api/`, platform on)
 
-Used by the admin console. HTTPS only; requests that change something must come from the console's own address; a console session token in the `Authorization` header (no cookies). Sign-in routes are rate-limited; five failed sign-ins lock an account for 15 minutes.
+Used by the admin console. HTTPS only. Requests that change something must come from the console's own address. A console session token in the `Authorization` header (no cookies). Sign-in routes are rate-limited. Five failed sign-ins lock an account for 15 minutes.
 
 | Group | Routes | Access |
 |---|---|---|
