@@ -1,0 +1,2188 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Amazon Connect + GoHighLevel integration by OctaveBytes">
+      
+      
+        <meta name="author" content="Octavebytes">
+      
+      
+        <link rel="canonical" href="https://octavebytes.github.io/GHL/user/agent-guide/">
+      
+      
+        <link rel="prev" href="../../product/05-faq/">
+      
+      
+        <link rel="next" href="../supervisor-guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Agent guide - GHL CTI Connector for Amazon Connect Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#agent-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GHL CTI Connector for Amazon Connect Documentation" class="md-header__button md-logo" aria-label="GHL CTI Connector for Amazon Connect Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GHL CTI Connector for Amazon Connect Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Agent guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../product/01-product-overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Product
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Users
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../admin/admin-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Administration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../operations/installation-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Installation and operations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../technical/architecture/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Technical
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../glossary/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Glossary
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GHL CTI Connector for Amazon Connect Documentation" class="md-nav__button md-logo" aria-label="GHL CTI Connector for Amazon Connect Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    GHL CTI Connector for Amazon Connect Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/01-product-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/02-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/03-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/04-security-and-privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security and privacy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/05-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Users
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Users
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-sign-in-and-open-the-softphone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sign in and open the softphone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-call-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The call panel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-answer-a-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Answer a call
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-place-a-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Place a call
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-during-a-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. During a call
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-wrap-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Wrap-up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-what-is-saved-to-the-contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. What is saved to the contact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-recent-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Recent calls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-common-messages-and-what-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Common messages and what to do
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#good-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Good practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../supervisor-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supervisor guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Administration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/admin-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/settings-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/licence-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licence guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation and operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation and operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/installation-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/upgrade-and-rollback/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade and rollback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/operations-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/integration-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/data-and-retention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data and retention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/api-and-endpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API and endpoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/protocol-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocol summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Message protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/release-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-sign-in-and-open-the-softphone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sign in and open the softphone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-call-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The call panel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-answer-a-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Answer a call
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-place-a-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Place a call
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-during-a-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. During a call
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-wrap-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Wrap-up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-what-is-saved-to-the-contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. What is saved to the contact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-recent-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Recent calls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-common-messages-and-what-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Common messages and what to do
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#good-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Good practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="agent-guide">Agent guide<a class="headerlink" href="#agent-guide" title="Permanent link">&para;</a></h1>
+<p>Document version 1.0 · 25 October 2026 · Applies to release v2.0.0</p>
+<p>How to take and place calls from GoHighLevel. Your administrator may have switched some features off. If a button described here is missing, that is why. One page summary: <a href="../quick-reference/">quick reference card</a>.</p>
+<h2 id="before-you-start">Before you start<a class="headerlink" href="#before-you-start" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use Google Chrome on your computer, with a headset.</li>
+<li>Your administrator must have linked your GoHighLevel user to your Amazon Connect user. If not, the panel says "<em>your email</em> is not linked to an Amazon Connect agent. Ask your administrator to add you."</li>
+<li>Allow pop-ups for GoHighLevel. If they are blocked, the panel says "Allow pop-ups for this site, then try again."</li>
+</ul>
+<h2 id="1-sign-in-and-open-the-softphone">1. Sign in and open the softphone<a class="headerlink" href="#1-sign-in-and-open-the-softphone" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Sign in to GoHighLevel as usual. The call panel appears on the right of every page: a small bar at the right edge (the <strong>mini bar</strong>) or the open panel. The coloured dot shows your state.</li>
+<li>Open the panel (click the mini bar, or the green <strong>«</strong>). If the panel says "Softphone window is not open.", click <strong>Open softphone</strong>.</li>
+<li>A new window opens: the <strong>softphone window</strong>. Sign in to Amazon Connect there with your Amazon Connect user name and password, and allow the microphone when asked.</li>
+<li>Keep the softphone window open all day. You can move it aside or minimise it, but do not close it: closing it ends your phone and frees your seat. If you try to close it during a call, the browser asks you to confirm.</li>
+<li>Back in GoHighLevel the panel shows your status, for example <strong>Available</strong>.</li>
+</ol>
+<p>Only one softphone window per person can be open. A second one shows "The softphone is already open in another window or computer. Close this one."</p>
+<p>If your organisation has used all its seats, the softphone shows "No softphone seat is free right now. Ask a colleague to log out, or ask your administrator for more seats." Try again when a colleague has closed their softphone.</p>
+<h2 id="2-the-call-panel">2. The call panel<a class="headerlink" href="#2-the-call-panel" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mini bar</td>
+<td>The folded panel at the right edge: status dot, your status or the caller, a timer, and <strong>Accept</strong> / <strong>Decline</strong> / <strong>Hang up</strong> when there is a call. Click it to open the panel.</td>
+</tr>
+<tr>
+<td><strong>»</strong> handle</td>
+<td>Folds the panel away.</td>
+</tr>
+<tr>
+<td>Status pill</td>
+<td>Your Amazon Connect status and how long you have had it. Click it to change status.</td>
+</tr>
+<tr>
+<td>▭ button</td>
+<td>Switches between the full view (all tabs) and the compact view (call controls only). Your choice is remembered.</td>
+</tr>
+<tr>
+<td>Caller card</td>
+<td>Who is calling: name, owner, last interaction and open deals from GoHighLevel.</td>
+</tr>
+<tr>
+<td>Tabs</td>
+<td><strong>Call</strong> (controls), <strong>Assist</strong> (Amazon Q), <strong>Transcript</strong> (live words and sentiment), <strong>Summary</strong> (AI summary after the call).</td>
+</tr>
+</tbody>
+</table>
+<p>The panel opens by itself when a call rings and folds away after the call, unless you opened it yourself.</p>
+<p><img alt="The call panel folded to its mini bar, status Available" src="../../screenshots/ghl/01-mini-bar-available.png" /></p>
+<p><em>Figure: The call panel folded to its mini bar, status Available (sample data).</em></p>
+<p><img alt="The call panel open on the Call tab, idle" src="../../screenshots/ghl/02-panel-idle.png" /></p>
+<p><em>Figure: The call panel open on the Call tab, idle (sample data).</em></p>
+<p><img alt="The compact view during a call" src="../../screenshots/ghl/09-compact-on-call.png" /></p>
+<p><em>Figure: The compact view during a call (sample data).</em></p>
+<h2 id="3-status">3. Status<a class="headerlink" href="#3-status" title="Permanent link">&para;</a></h2>
+<p>Click the status pill and choose a status under "Set your status" (for example Available, Offline or a break). The list comes from your Amazon Connect setup. You cannot change status during a call ("Status changes after the call").</p>
+<p>Choose <strong>Available</strong> to receive calls. Your status in the panel and in Amazon Connect are the same thing.</p>
+<p><img alt="The status menu" src="../../screenshots/ghl/03-status-menu.png" /></p>
+<p><em>Figure: The status menu (sample data).</em></p>
+<h2 id="4-answer-a-call">4. Answer a call<a class="headerlink" href="#4-answer-a-call" title="Permanent link">&para;</a></h2>
+<ol>
+<li>The panel opens and shows "Incoming call" with the number or the contact's name. The caller's contact usually opens in GoHighLevel at the same time (screen pop). For a number with no contact, a contact named "Unknown caller" with the number may be created for you to rename.</li>
+<li>Click <strong>Accept</strong> to answer, or <strong>Decline</strong>.</li>
+<li>If you do not answer, the call shows as "Missed call" and Amazon Connect stops sending you calls. Choose <strong>Available</strong> to take calls again ("Set to unavailable by a missed call. Choose Available to resume.").</li>
+</ol>
+<p><img alt="An incoming call with the caller card" src="../../screenshots/ghl/04-incoming-call.png" /></p>
+<p><em>Figure: An incoming call with the caller card (sample data).</em></p>
+<h2 id="5-place-a-call">5. Place a call<a class="headerlink" href="#5-place-a-call" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>From a contact:</strong> click the phone icon on the contact page or next to a number in the contacts list. The call goes through Amazon Connect, not GoHighLevel's own dialler.</li>
+<li><strong>By number:</strong> on the <strong>Call</strong> tab, type the number in the box and click <strong>Call</strong>. Include the country code for numbers abroad (for example +44 for the UK); local numbers use your organisation's default country.</li>
+<li><strong>Queue:</strong> if "Call from queue" is shown, choose the outbound queue before dialling.</li>
+<li><strong>Redial:</strong> under "Recent calls", click <strong>Redial</strong> next to a call.</li>
+</ul>
+<p>Messages you may see: "Enter a phone number.", "That number is too short.", "That is not a valid international number.", "Finish the current call before dialling." If calling is switched off for your team: "Calling is switched off by your administrator."</p>
+<h2 id="6-during-a-call">6. During a call<a class="headerlink" href="#6-during-a-call" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hold</strong> / <strong>Resume</strong></td>
+<td>Puts the caller on hold and back. The panel shows "Holding…" or "Resuming…" until Amazon Connect confirms.</td>
+</tr>
+<tr>
+<td><strong>Mute</strong> / <strong>Unmute</strong></td>
+<td>Stops the caller hearing you. A mute made in the softphone window shows here too.</td>
+</tr>
+<tr>
+<td><strong>Keypad</strong></td>
+<td>Opens a keypad to send digits, for example to an automated menu.</td>
+</tr>
+<tr>
+<td><strong>Hang up</strong></td>
+<td>Ends the call.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transcript tab:</strong> the conversation appears within seconds, with who said what and the caller's sentiment (Positive, Neutral, Negative). Scroll up to read back; "New messages ↓" takes you to the latest.</p>
+<p><strong>Assist tab:</strong> Amazon Q suggests answers when the caller asks a question. Mark a suggestion <strong>Helpful</strong> or <strong>Not helpful</strong>, or click <strong>Copy</strong> to copy the answer. Type your own question in "Ask Q a question…" during a call.</p>
+<p>If the transcript or Amazon Q is unavailable, the tab says so and adds "The call is not affected."</p>
+<p><img alt="On a call, with Hold, Mute, Keypad and Hang up" src="../../screenshots/ghl/05-on-call.png" /></p>
+<p><em>Figure: On a call, with Hold, Mute, Keypad and Hang up (sample data).</em></p>
+<p><img alt="The Transcript tab with sentiment" src="../../screenshots/ghl/06-transcript.png" /></p>
+<p><em>Figure: The Transcript tab with sentiment (sample data).</em></p>
+<p><img alt="The Assist tab with Amazon Q answers" src="../../screenshots/ghl/07-assist.png" /></p>
+<p><em>Figure: The Assist tab with Amazon Q answers (sample data).</em></p>
+<p><img alt="A call on hold" src="../../screenshots/ghl/08-on-hold.png" /></p>
+<p><em>Figure: A call on hold (sample data).</em></p>
+<h2 id="7-wrap-up">7. Wrap-up<a class="headerlink" href="#7-wrap-up" title="Permanent link">&para;</a></h2>
+<p>After the call the panel shows "Call ended" and a wrap-up step:
+1. Choose the outcome in <strong>Disposition…</strong>.
+2. Type a note if you want (<strong>Notes (optional)</strong>).
+3. Click <strong>Save &amp; Done</strong>. Amazon Connect ends the wrap-up and you can take the next call.</p>
+<p>Your administrator may require a disposition or a note. The panel will not finish wrap-up without them. The list of dispositions can differ for inbound and outbound calls.</p>
+<p><img alt="Wrap-up with a disposition and notes" src="../../screenshots/ghl/10-wrap-up.png" /></p>
+<p><em>Figure: Wrap-up with a disposition and notes (sample data).</em></p>
+<h2 id="8-what-is-saved-to-the-contact">8. What is saved to the contact<a class="headerlink" href="#8-what-is-saved-to-the-contact" title="Permanent link">&para;</a></h2>
+<p>The panel shows "Logging to GHL…", then "Logged to GHL". A few seconds later a green strip says "Saved to GHL" with a <strong>Refresh</strong> button and an <strong>Auto-refresh</strong> switch. If auto-refresh is on and you are not typing or on a call, the contact page refreshes by itself ("Refreshing to show the saved call…", with <strong>Cancel</strong>) so you see the new note.</p>
+<p>Depending on your organisation's settings, the contact receives:
+- a note with the call details, your disposition and note, the recording link and the AI summary;
+- a "Call completed" entry in the conversation, with the recording player;
+- the call transcript as an internal comment;
+- the AI summary as a comment and in the contact's "Last call summary" and "Last call sentiment" fields.</p>
+<p>The <strong>Summary</strong> tab shows "Generating summary…", then the summary and where it was saved. Very short calls get no summary. If the summary could not be made, the tab says so. The rest of the call record is not affected.</p>
+<p>If GoHighLevel cannot be reached, the panel says "Not logged yet, retrying:" and the server keeps trying. You do not need to do anything. The call is written once when GoHighLevel is back.</p>
+<p><img alt="The &quot;Saved to GHL&quot; strip" src="../../screenshots/ghl/11-logged-saved.png" /></p>
+<p><em>Figure: The "Saved to GHL" strip (sample data).</em></p>
+<p><img alt="The Summary tab" src="../../screenshots/ghl/12-summary.png" /></p>
+<p><em>Figure: The Summary tab (sample data).</em></p>
+<p><img alt="The note the connector writes on the contact" src="../../screenshots/ghl/13-contact-note.png" /></p>
+<p><em>Figure: The note the connector writes on the contact (sample data).</em></p>
+<p><img alt="The &quot;Call completed&quot; entry with the recording player, and the phone icon for calling from the contact" src="../../screenshots/ghl/14-call-completed-entry.png" /></p>
+<p><em>Figure: The "Call completed" entry with the recording player, and the phone icon for calling from the contact (sample data).</em></p>
+<h2 id="9-recent-calls">9. Recent calls<a class="headerlink" href="#9-recent-calls" title="Permanent link">&para;</a></h2>
+<p>When you are not on a call, the <strong>Call</strong> tab lists your recent calls with the contact or number, and <strong>Redial</strong>.</p>
+<h2 id="10-common-messages-and-what-to-do">10. Common messages and what to do<a class="headerlink" href="#10-common-messages-and-what-to-do" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>What it means</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Softphone window is not open.</td>
+<td>Your phone is not running.</td>
+<td>Click <strong>Open softphone</strong>.</td>
+</tr>
+<tr>
+<td>Allow pop-ups for this site, then try again.</td>
+<td>The browser blocked the softphone window.</td>
+<td>Allow pop-ups for GoHighLevel in Chrome, then click <strong>Open softphone</strong> again.</td>
+</tr>
+<tr>
+<td>Reconnecting… / Reconnecting to the server…</td>
+<td>The connection to the server dropped. Your call continues.</td>
+<td>Wait. If it lasts more than a minute, check your internet connection.</td>
+</tr>
+<tr>
+<td>No softphone seat is free right now. …</td>
+<td>All seats are in use.</td>
+<td>Try again later, or ask your administrator.</td>
+</tr>
+<tr>
+<td>The softphone is already open in another window or computer. Close this one.</td>
+<td>You already have a softphone window.</td>
+<td>Use the one that is open, or close it first.</td>
+</tr>
+<tr>
+<td>An administrator ended your softphone session. Open the softphone again from the call bar.</td>
+<td>An administrator freed your seat.</td>
+<td>Click <strong>Open softphone</strong> when you need the phone again.</td>
+</tr>
+<tr>
+<td>Your softphone session ended because it went quiet. …</td>
+<td>Your computer slept or lost the network for several minutes while idle.</td>
+<td>Click <strong>Open softphone</strong>.</td>
+</tr>
+<tr>
+<td>Session ended. Open the softphone again from the call bar in GoHighLevel.</td>
+<td>Softphone sessions end after a working day (12 hours by default).</td>
+<td>Click <strong>Open softphone</strong>.</td>
+</tr>
+<tr>
+<td>This Amazon Connect user is not the agent linked to your GoHighLevel account (…). …</td>
+<td>You signed in to Amazon Connect as someone else.</td>
+<td>Sign out of Amazon Connect in the softphone window and sign in as yourself.</td>
+</tr>
+<tr>
+<td><em>your email</em> is not linked to an Amazon Connect agent. Ask your administrator to add you.</td>
+<td>You are not on the agent mapping.</td>
+<td>Ask your administrator.</td>
+</tr>
+<tr>
+<td>The connector is switched off by your administrator.</td>
+<td>The connector is switched off for everyone.</td>
+<td>Use GoHighLevel's own dialler or wait until it is back.</td>
+</tr>
+<tr>
+<td>That is switched off by your administrator.</td>
+<td>A feature was switched off.</td>
+<td>Nothing; ask your administrator if you need it.</td>
+</tr>
+<tr>
+<td>The licence ends in N days. Ask your administrator to renew it.</td>
+<td>A notice for your administrator.</td>
+<td>Tell your administrator. Calls work as usual.</td>
+</tr>
+<tr>
+<td>The licence has expired. Calls keep working for now. …</td>
+<td>A notice for your administrator.</td>
+<td>Tell your administrator.</td>
+</tr>
+<tr>
+<td>… The softphone cannot start until it is fixed.</td>
+<td>There is no valid licence.</td>
+<td>Tell your administrator.</td>
+</tr>
+<tr>
+<td>Live transcription is temporarily unavailable. The call is not affected.</td>
+<td>Contact Lens did not answer.</td>
+<td>Continue the call.</td>
+</tr>
+<tr>
+<td>Q suggestions are temporarily unavailable. The call is not affected.</td>
+<td>Amazon Q did not answer.</td>
+<td>Continue the call.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="good-practice">Good practice<a class="headerlink" href="#good-practice" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Lock your computer when you leave it: the panel shows caller details.</li>
+<li>Do not share your GoHighLevel or Amazon Connect sign-in.</li>
+<li>Close the softphone window at the end of the day, so the seat is free for others.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../product/05-faq/" class="md-footer__link md-footer__link--prev" aria-label="Previous: FAQ">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                FAQ
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../supervisor-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: Supervisor guide">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Supervisor guide
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2026 Octavebytes. All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/octavebytes/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/octavebytes" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UCA0Le6ELahBzAf-I7jOBuRQ" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://octavebytes.com" target="_blank" rel="noopener" title="octavebytes.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

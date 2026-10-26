@@ -1,0 +1,2260 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Amazon Connect + GoHighLevel integration by OctaveBytes">
+      
+      
+        <meta name="author" content="Octavebytes">
+      
+      
+        <link rel="canonical" href="https://octavebytes.github.io/GHL/operations/installation-guide/">
+      
+      
+        <link rel="prev" href="../../admin/licence-guide/">
+      
+      
+        <link rel="next" href="../upgrade-and-rollback/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Installation guide - GHL CTI Connector for Amazon Connect Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GHL CTI Connector for Amazon Connect Documentation" class="md-header__button md-logo" aria-label="GHL CTI Connector for Amazon Connect Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GHL CTI Connector for Amazon Connect Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../product/01-product-overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Product
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user/agent-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Users
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../admin/admin-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Administration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Installation and operations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../technical/architecture/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Technical
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../glossary/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Glossary
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GHL CTI Connector for Amazon Connect Documentation" class="md-nav__button md-logo" aria-label="GHL CTI Connector for Amazon Connect Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    GHL CTI Connector for Amazon Connect Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/01-product-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/02-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/03-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/04-security-and-privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security and privacy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/05-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Users
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Users
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/agent-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/supervisor-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supervisor guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Administration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/admin-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/settings-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/licence-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licence guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation and operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation and operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-prepare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Prepare
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-get-the-release-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Get the release package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-set-up-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Set up the server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fill-in-the-environment-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Fill in the environment file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-connect-amazon-connect-and-gohighlevel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Connect Amazon Connect and GoHighLevel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-link-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Link agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-start-the-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Start the connector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-switch-the-platform-on-and-create-the-first-administrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Switch the platform on and create the first administrator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-check-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Check it works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-undo-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Undo the installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade-and-rollback/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade and rollback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operations-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/integration-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/data-and-retention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data and retention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/api-and-endpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API and endpoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/protocol-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocol summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Message protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/release-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-prepare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Prepare
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-get-the-release-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Get the release package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-set-up-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Set up the server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fill-in-the-environment-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Fill in the environment file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-connect-amazon-connect-and-gohighlevel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Connect Amazon Connect and GoHighLevel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-link-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Link agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-start-the-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Start the connector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-switch-the-platform-on-and-create-the-first-administrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Switch the platform on and create the first administrator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-check-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Check it works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-undo-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Undo the installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="installation-guide">Installation guide<a class="headerlink" href="#installation-guide" title="Permanent link">&para;</a></h1>
+<p>Document version 1.0 · 25 October 2026 · Applies to release v2.0.0</p>
+<p>For the server administrator who installs the connector for one organisation and one GoHighLevel sub-account. Read <a href="../../product/03-requirements/">requirements</a> first. Every value below is an example: <code>cti.example.com</code> stands for your connector's address.</p>
+<p>Read the output of the first-time setup script (<code>server-setup.sh</code>) as it runs, and be ready to adjust the port and certificate steps to your server.</p>
+<p>Never paste secrets (tokens, keys, <code>.env</code> content, setup codes) into email, chat or tickets.</p>
+<h2 id="1-prepare">1. Prepare<a class="headerlink" href="#1-prepare" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connector address</td>
+<td><code>https://cti.example.com</code> (a DNS A record pointing at the server)</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>Ubuntu, Node.js 22, nginx and certbot installed, a free local port (default 4320)</td>
+</tr>
+<tr>
+<td>From GoHighLevel</td>
+<td>the sub-account location id and a Private Integration token created inside the sub-account</td>
+</tr>
+<tr>
+<td>From Amazon Connect</td>
+<td>the instance address (for example <code>https://yourcompany.my.connect.aws</code>), the instance id, the AWS region, the Amazon Q assistant id, and an IAM role for the server (or an access key)</td>
+</tr>
+<tr>
+<td>From OctaveBytes</td>
+<td>the release package (<code>.tar.gz</code> and its <code>.sha256</code>), the licence file, the public keys file <code>licence-keys.json</code>, and the Marketplace app values (app id, shared secret, client id, client secret, conversation provider id). Tell OctaveBytes your connector address first, so it can be added to the app.</td>
+</tr>
+<tr>
+<td>People</td>
+<td>the first console administrator's email address and name</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-get-the-release-package">2. Get the release package<a class="headerlink" href="#2-get-the-release-package" title="Permanent link">&para;</a></h2>
+<p>OctaveBytes provides the package. To build it yourself from the source repository (Node.js 22):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>npm<span class="w"> </span>ci
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>npm<span class="w"> </span>run<span class="w"> </span>verify
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>./deploy/package.sh<span class="w"> </span>/tmp/ob-ghl-connector.tar.gz
+</code></pre></div>
+<p><code>package.sh</code> builds and checks the platform packages, includes them in the package, refuses to build if a secret file slipped in, and writes <code>/tmp/ob-ghl-connector.tar.gz.sha256</code> next to the package with the version and commit it contains. The <code>.sha256</code> file must travel with the package: the update script will not install without it.</p>
+<h2 id="3-set-up-the-server">3. Set up the server<a class="headerlink" href="#3-set-up-the-server" title="Permanent link">&para;</a></h2>
+<p>Copy the package, its <code>.sha256</code> file and the <code>deploy/</code> folder to the server, then as root from that <code>deploy/</code> folder:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./server-setup.sh<span class="w"> </span>cti.example.com<span class="w"> </span>/tmp/ob-ghl-connector.tar.gz<span class="w"> </span><span class="m">4320</span>
+</code></pre></div>
+<p>The script only adds things: a service user <code>obghl</code>, the folder <code>/opt/ob-ghl-connector</code>, the systemd service <code>ob-ghl-connector</code>, an nginx site for your domain only, and a Let's Encrypt certificate for it. It backs up <code>/etc/nginx</code> first, checks that the domain points at this server and that the port is free, and prints the commands to undo it. It does not start the service while required values in <code>.env</code> are empty.</p>
+<p><strong>nginx.</strong> The site proxies everything to <code>127.0.0.1:&lt;port&gt;</code>, allows WebSocket upgrades, keeps connections open for up to an hour, and limits request bodies to 64 KB (template: <code>deploy/nginx-site.conf.template</code>). Keep these lines if you edit it. To serve HTTPS on a port other than 443, add a <code>listen &lt;port&gt; ssl</code> server block with the same <code>location /</code> content and open the port in your firewall.</p>
+<h2 id="4-fill-in-the-environment-file">4. Fill in the environment file<a class="headerlink" href="#4-fill-in-the-environment-file" title="Permanent link">&para;</a></h2>
+<p>Edit <code>/opt/ob-ghl-connector/backend/.env</code> (template: <code>deploy/env.production.example</code>). It is readable only by root and the service user. Keep it so. Changes need a restart.</p>
+<p><strong>Hosting</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TLS</code></td>
+<td><code>off</code>: nginx handles HTTPS and the connector speaks plain HTTP on the local port.</td>
+</tr>
+<tr>
+<td><code>HOST</code></td>
+<td><code>127.0.0.1</code>: listen on the local address only. With this value the connector trusts nginx's forwarded client address.</td>
+</tr>
+<tr>
+<td><code>PORT</code></td>
+<td>The local port, the same as in the nginx site (default 4320).</td>
+</tr>
+<tr>
+<td><code>BACKEND_ORIGIN</code></td>
+<td>The public address agents use, with <code>https://</code> and no trailing slash, for example <code>https://cti.example.com</code>. Used for the GoHighLevel app redirect, the allowed-address list, and passkeys.</td>
+</tr>
+<tr>
+<td><code>ALLOWED_ORIGINS</code></td>
+<td>Extra addresses agents open GoHighLevel from, comma-separated, for example your agency's white-label domain. <code>*.gohighlevel.com</code> is always allowed. Set it even if you use only <code>app.gohighlevel.com</code>, to replace the built-in default.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GoHighLevel</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GHL_LOCATION_ID</code></td>
+<td>The sub-account's location id. The licence is bound to it.</td>
+</tr>
+<tr>
+<td><code>GHL_PRIVATE_TOKEN</code></td>
+<td>The Private Integration token from inside the sub-account. Secret.</td>
+</tr>
+<tr>
+<td><code>GHL_APP_ID</code>, <code>GHL_APP_SHARED_SECRET</code></td>
+<td>The OctaveBytes Marketplace app's id and shared secret (from OctaveBytes); used to recognise the signed-in GoHighLevel user. The shared secret is secret.</td>
+</tr>
+<tr>
+<td><code>GHL_CLIENT_ID</code>, <code>GHL_CLIENT_SECRET</code></td>
+<td>The app's OAuth client (from OctaveBytes); used when the app is installed on the sub-account. The client secret is secret.</td>
+</tr>
+<tr>
+<td><code>GHL_PROVIDER_ID</code></td>
+<td>The app's conversation provider id (from OctaveBytes). Needed for the "Call completed" entry and the recording player.</td>
+</tr>
+<tr>
+<td><code>GHL_WEBHOOK_PUBLIC_KEY</code></td>
+<td>Optional. GoHighLevel's public key for checking webhook signatures. Without it every webhook is refused (nothing in this release uses webhooks yet).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Amazon Connect and AWS</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CONNECT_URL</code></td>
+<td>Your Amazon Connect instance address, for example <code>https://yourcompany.my.connect.aws</code>.</td>
+</tr>
+<tr>
+<td><code>CONNECT_INSTANCE_ID</code></td>
+<td>Your Amazon Connect instance id. <strong>Set it</strong>: the built-in value belongs to the OctaveBytes test instance.</td>
+</tr>
+<tr>
+<td><code>Q_ASSISTANT_ID</code></td>
+<td>Your Amazon Q in Connect assistant id. <strong>Set it</strong> for the same reason.</td>
+</tr>
+<tr>
+<td><code>AWS_REGION</code></td>
+<td>The region of your instance, for example <code>us-east-1</code>.</td>
+</tr>
+<tr>
+<td><code>AWS_AUTH</code></td>
+<td><code>role</code> (recommended): use the server's IAM role, so no AWS key is stored. Leave the two key variables empty then.</td>
+</tr>
+<tr>
+<td><code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code></td>
+<td>Only if you do not use a role. Secret; rotate regularly.</td>
+</tr>
+</tbody>
+</table>
+<p>The role or key needs the permissions in <code>deploy/iam-policy.json</code> (read contact details and Contact Lens results, use the Amazon Q assistant and its encryption key). <code>deploy/iam-trust-policy.json</code> lets an EC2 instance use the role.</p>
+<p><strong>Security</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SESSION_SECRET</code></td>
+<td>A long random value that signs agent tokens. Secret. Changing it signs every agent out.</td>
+</tr>
+<tr>
+<td><code>ADMIN_TOKEN</code></td>
+<td>16 or more random characters; enables the detailed health check for operators. Secret. <code>ADMIN_TOKEN_FILE</code> can point at a file holding it instead.</td>
+</tr>
+<tr>
+<td><code>SESSION_MAX_HOURS</code></td>
+<td>How long a softphone session lasts before it must be reopened. Default 12.</td>
+</tr>
+<tr>
+<td><code>BAR_STALE_MIN</code></td>
+<td>Minutes after which a call panel whose GoHighLevel sign-in has stopped is disconnected (never during a call). Default 35.</td>
+</tr>
+<tr>
+<td><code>CSP_MODE</code></td>
+<td><code>enforce</code> turns the content security policy on; default is report-only. Test with your softphone before enforcing.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Privacy and retention</strong> (see <a href="../../technical/data-and-retention/">data and retention</a>)</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RETENTION_DAYS</code></td>
+<td>Delete stored transcripts, summary jobs, call history, Amazon Q feedback and finished-call ledger entries older than this many days. Unset or 0 keeps everything.</td>
+</tr>
+<tr>
+<td><code>AUDIT_RETENTION_DAYS</code></td>
+<td>Days to keep the audit log. Default 2190 (six years).</td>
+</tr>
+<tr>
+<td><code>AUDIT_DIR</code></td>
+<td>Where the audit log is written. Default <code>backend/data/audit</code>.</td>
+</tr>
+<tr>
+<td><code>PERSIST_TRANSCRIPT</code></td>
+<td><code>off</code> keeps the live transcript in memory only.</td>
+</tr>
+<tr>
+<td><code>GHL_AI_TEXT</code></td>
+<td><code>off</code> writes nothing produced by AI to GoHighLevel.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Alerts</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ALERT_WEBHOOK_URL</code></td>
+<td>Optional address that receives a short alert message (Slack-compatible; no personal data).</td>
+</tr>
+<tr>
+<td><code>ALERT_COOLDOWN_MIN</code></td>
+<td>Minimum minutes between two alerts of the same kind. Default 15.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Platform</strong> (licence, seats, admin console)</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PLATFORM</code></td>
+<td><code>on</code> switches the platform on. Set by the platform install script (step 7).</td>
+</tr>
+<tr>
+<td><code>PLATFORM_LICENCE</code></td>
+<td>Leave unset (licence enforced).</td>
+</tr>
+<tr>
+<td><code>ADMIN_RP_ID</code></td>
+<td>The domain passkeys are tied to. Default: the host of <code>BACKEND_ORIGIN</code>. Changing the address later means administrators add their passkeys again.</td>
+</tr>
+<tr>
+<td><code>ADMIN_SECRET</code></td>
+<td>Optional, 32+ characters; signs console sessions. If unset, a random one is kept in <code>backend/data/admin-secret.key</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other</strong>: <code>DEFAULT_COUNTRY</code> (two letters, default <code>US</code>) is the country assumed for numbers typed without a country code. <code>TRANSCRIPT</code>, <code>ASSIST</code> and <code>AUTO_CREATE_UNKNOWN</code> (<code>off</code>) switch features off when the platform is off. With the platform on, use the console instead. <code>DATA_DIR</code>, <code>CONFIG_DIR</code> and <code>ENV_FILE</code> move the data folder, the configuration folder and the environment file. Leave <code>DEV_MODE</code>, <code>DEBUG_PANEL</code>, <code>HOLD_MS</code>, <code>RETRY_BASE_MS</code>, <code>RECONCILE_MS</code> and <code>GHL_BASE</code> unset: they are for development and tests.</p>
+<h2 id="5-connect-amazon-connect-and-gohighlevel">5. Connect Amazon Connect and GoHighLevel<a class="headerlink" href="#5-connect-amazon-connect-and-gohighlevel" title="Permanent link">&para;</a></h2>
+<p>Do these in order.</p>
+<ol>
+<li><strong>Amazon Connect approved origin.</strong> AWS console → Amazon Connect → your instance → Application integration → Approved origins → add <code>https://cti.example.com</code> (with the port if it is not 443). Without it the softphone window cannot start.</li>
+<li><strong>Amazon Connect features.</strong> Make sure your contact flows enable call recording, Contact Lens real-time analytics and post-call summary, and create an Amazon Q session. These are standard Amazon Connect settings; your Amazon Connect administrator owns them.</li>
+<li><strong>GoHighLevel Marketplace app.</strong> OctaveBytes adds <code>https://cti.example.com/oauth/callback</code> to its app's redirect URLs (tell OctaveBytes your address). Your agency administrator then installs the OctaveBytes app on the sub-account from the install link OctaveBytes sends. The install ends on a page that says "Connected to GoHighLevel. You can close this tab." The server keeps the app's token in <code>backend/data/oauth.json</code>. Only one server may use this token: GoHighLevel replaces it on every refresh.</li>
+<li><strong>GoHighLevel Custom JS.</strong> In the agency: Settings → Company → White Label → Custom JS. Copy the current content somewhere safe first. Add:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cti.example.com/loader.js"</span> <span class="na">async</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>The editor sometimes duplicates the closing <code>&lt;/script&gt;</code>. Check the end of the line. Save, and confirm the third-party scripts warning (<strong>Proceed</strong>). Agents reload GoHighLevel.</p>
+<h2 id="6-link-agents">6. Link agents<a class="headerlink" href="#6-link-agents" title="Permanent link">&para;</a></h2>
+<p>Edit <code>/opt/ob-ghl-connector/backend/config/agents.json</code> (as root; keep it readable by the service user). One line per agent, GoHighLevel email address in lower case to Amazon Connect user name:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"_comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GHL user email (lowercase) -&gt; Amazon Connect username."</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">"agent.one@example.com"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agent.one"</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">"agent.two@example.com"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agent.two"</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>The file is read on every sign-in, so no restart is needed. Changes are noted in the audit log (without the content).</p>
+<h2 id="7-start-the-connector">7. Start the connector<a class="headerlink" href="#7-start-the-connector" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>systemctl<span class="w"> </span>start<span class="w"> </span>ob-ghl-connector
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:4320/health
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>curl<span class="w"> </span>-s<span class="w"> </span>https://cti.example.com/health
+</code></pre></div>
+<p>Both health checks answer <code>{"ok":true,...}</code>. Logs: <code>journalctl -u ob-ghl-connector -n 50</code>.</p>
+<h2 id="8-switch-the-platform-on-and-create-the-first-administrator">8. Switch the platform on and create the first administrator<a class="headerlink" href="#8-switch-the-platform-on-and-create-the-first-administrator" title="Permanent link">&para;</a></h2>
+<p>The platform adds the licence, seats, settings and the admin console. Without it the connector works with all features on and no seat limit.</p>
+<ol>
+<li>Put the public keys file from OctaveBytes at <code>/opt/ob-ghl-connector/backend/config/licence-keys.json</code> (owner root, group <code>obghl</code>, mode 640).</li>
+<li>Put the licence file at <code>/opt/ob-ghl-connector/backend/data/license.key</code> (owned by <code>obghl</code>). Or install it later on the console's Licence page.</li>
+<li>Read <code>deploy/install-platform.sh</code>, then run it as root with the address agents use and the first administrator:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./install-platform.sh<span class="w"> </span>https://cti.example.com<span class="w"> </span>admin@example.com<span class="w"> </span><span class="s2">"Admin Name"</span>
+</code></pre></div>
+<p>It asks before changing anything, keeps a copy of <code>.env</code>, sets <code>PLATFORM=on</code>, <code>BACKEND_ORIGIN</code> and <code>AUDIT_RETENTION_DAYS=2190</code>, prints a <strong>one-time setup code</strong> (24 hours, single use), restarts the service and checks it answers.
+4. Give the setup code to the first administrator by a separate channel. They open <code>https://cti.example.com/admin/</code>, choose <strong>I have a setup code</strong>, set up an authenticator app and, where offered, a passkey, and save their recovery codes (<a href="../../admin/admin-guide/#1-first-sign-in-with-a-setup-code">admin guide</a>).
+5. Check the log line: <code>journalctl -u ob-ghl-connector -n 20 | grep platform</code> shows <code>[platform] on: licence valid for &lt;customer&gt;, N seat(s); settings rev …; passkeys on</code>. "passkeys off (authenticator app only)" means the address has no domain name or is not HTTPS.</p>
+<p>To make another setup code later (for example when every administrator is locked out), see the <a href="../operations-runbook/#administrator-locked-out">operations runbook</a>.</p>
+<h2 id="9-check-it-works">9. Check it works<a class="headerlink" href="#9-check-it-works" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Check</th>
+<th>Expected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>https://cti.example.com/health</code></td>
+<td><code>{"ok":true,...}</code> with a valid certificate</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>https://cti.example.com/loader.js</code></td>
+<td>the loader script</td>
+</tr>
+<tr>
+<td>3</td>
+<td>GoHighLevel in a fresh Chrome profile, as a mapped agent</td>
+<td>the call panel appears</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Open softphone</strong>, sign in to Amazon Connect</td>
+<td>the panel shows the agent's status</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A test call in and out</td>
+<td>ring, accept, hold, mute, hang up, wrap-up, "Logged to GHL", note and call entry on the contact</td>
+</tr>
+<tr>
+<td>6</td>
+<td>After an answered call</td>
+<td>AI summary and transcript comment on the contact a few seconds later</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>/admin/</code></td>
+<td>sign-in works; Agents shows the seat; Licence shows Valid</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>curl -I https://cti.example.com/engine.html</code></td>
+<td><code>referrer-policy: strict-origin</code> and no <code>camera=()</code> in <code>permissions-policy</code> (see <a href="../troubleshooting/#the-softphone-window-keeps-going-back-to-sign-in-or-says-refused-to-connect">troubleshooting</a>)</td>
+</tr>
+</tbody>
+</table>
+<p>Use test contacts and test calls only. No real patient data during installation.</p>
+<h2 id="10-undo-the-installation">10. Undo the installation<a class="headerlink" href="#10-undo-the-installation" title="Permanent link">&para;</a></h2>
+<ol>
+<li>GoHighLevel Custom JS: remove the <code>loader.js</code> line (agents reload). This alone removes the connector from GoHighLevel.</li>
+<li><code>systemctl disable --now ob-ghl-connector</code></li>
+<li><code>rm /etc/nginx/sites-enabled/ob-ghl-connector &amp;&amp; nginx -t &amp;&amp; systemctl reload nginx</code></li>
+<li>Remove the approved origin in Amazon Connect.</li>
+</ol>
+<p>Next: <a href="../upgrade-and-rollback/">upgrade and rollback</a> · <a href="../operations-runbook/">operations runbook</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../admin/licence-guide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Licence guide">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Licence guide
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../upgrade-and-rollback/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrade and rollback">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Upgrade and rollback
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2026 Octavebytes. All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/octavebytes/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/octavebytes" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UCA0Le6ELahBzAf-I7jOBuRQ" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://octavebytes.com" target="_blank" rel="noopener" title="octavebytes.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
