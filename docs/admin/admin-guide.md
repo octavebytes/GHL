@@ -1,6 +1,6 @@
 # Admin guide
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 For the people who run the connector day to day. Use the console to change settings, watch seats, install the licence and manage who can sign in. The admin console exists only when the platform is switched on (see the [installation guide](../operations/installation-guide.md#8-switch-the-platform-on-and-create-the-first-administrator)).
 

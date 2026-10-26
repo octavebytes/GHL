@@ -1,6 +1,6 @@
 # Glossary
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 Each term is defined once here and used with this meaning in every customer document.
 

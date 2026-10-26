@@ -1,8 +1,8 @@
 # Integration guide: adding a CRM adapter
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
-For engineers who need to see where another CRM would plug in. Release v0.2.0 ships one CRM, GoHighLevel. The guide describes the seams that exist in the code today. It does not promise support for other CRMs.
+For engineers who need to see where another CRM would plug in. Release v2.0.0 ships one CRM, GoHighLevel. The guide describes the seams that exist in the code today. It does not promise support for other CRMs.
 
 ## The idea
 

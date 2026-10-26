@@ -1,6 +1,6 @@
 # Architecture
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 How the connector is built: components, data flow and trust boundaries. For security commitments see [security and privacy](../product/04-security-and-privacy.md).
 

@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 Symptom, cause and fix for the problems seen so far. Agent-facing messages are listed in the [agent guide](../user/agent-guide.md#10-common-messages-and-what-to-do). Start with the service log: `journalctl -u ob-ghl-connector -n 100 --no-pager`.
 
@@ -9,7 +9,7 @@ Symptom, cause and fix for the problems seen so far. Agent-facing messages are l
 ### The softphone window keeps going back to sign-in or says "refused to connect"
 
 **Symptom:** the softphone window loops between a "refused to connect" frame and the Amazon Connect sign-in screen, or shows "Camera is not accessible".
-**Cause:** the page that holds the Amazon Connect softphone must send `Referrer-Policy: strict-origin`. With `no-referrer`, Amazon Connect cannot see which site is asking and refuses to be shown (`frame-ancestors 'self'`). A `Permissions-Policy` that blocks the camera (`camera=()`) makes the softphone show "Camera is not accessible". Release v0.2.0 sends the right headers; this happens when an older release is still installed, or when nginx adds its own security headers.
+**Cause:** the page that holds the Amazon Connect softphone must send `Referrer-Policy: strict-origin`. With `no-referrer`, Amazon Connect cannot see which site is asking and refuses to be shown (`frame-ancestors 'self'`). A `Permissions-Policy` that blocks the camera (`camera=()`) makes the softphone show "Camera is not accessible". Release v2.0.0 sends the right headers; this happens when an older release is still installed, or when nginx adds its own security headers.
 **Fix:**
 1. `curl -sI https://cti.example.com/engine.html` must show `referrer-policy: strict-origin` and must not show `camera=()`.
 2. Check the installed release: `cat /opt/ob-ghl-connector/VERSION`.

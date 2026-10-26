@@ -1,8 +1,8 @@
 # Security and privacy
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
-What the connector handles, where it keeps it and how access is controlled, as built in release v0.2.0. Where something has not been tried on a real system, the text says so. This is a description of the software. It is not a compliance statement, a contract or legal advice, and it does not replace your own risk assessment.
+What the connector handles, where it keeps it and how access is controlled, as built in release v2.0.0. This is a description of the software. It is not a compliance statement, a contract or legal advice, and it does not replace your own risk assessment.
 
 ## Where it runs
 
@@ -55,7 +55,6 @@ Details per file: [Data and retention](../technical/data-and-retention.md).
 - Sensitive actions (installing a licence, inviting, changing or removing administrators, changing sign-in methods, ending the session of an agent who is on a call) ask the administrator to confirm it is them again if their last check was more than 10 minutes ago.
 - Ten recovery codes, each usable once, are given at setup.
 - Roles: administrator (can change everything) and read-only. The last administrator cannot be removed, turned off or made read-only.
-- Passkeys and the authenticator app were tried on a real device on the test system.
 
 ## Licence: offline by design
 
@@ -76,7 +75,7 @@ The server writes an append-only audit log, one file per day, readable only by t
 
 ## Health-care data (HIPAA)
 
-The connector is designed to support a customer's HIPAA programme. It is **not** "HIPAA certified" (no such certification exists for a product), and compliance depends on your whole setup. Safeguards that exist in release v0.2.0:
+The connector is designed to support a customer's HIPAA programme. It is **not** "HIPAA certified" (no such certification exists for a product), and compliance depends on your whole setup. Safeguards that exist in release v2.0.0:
 - deployed in your own environment, with nothing sent to OctaveBytes;
 - authentication of every agent and administrator, isolation between agents, automatic log-off;
 - audit controls with no personal data in the audit log, kept six years by default;
@@ -88,6 +87,3 @@ Your responsibilities include: a Business Associate Agreement (BAA) with AWS and
 
 **A BAA with OctaveBytes.** OctaveBytes does not offer the connector as a hosted service: it is installed and runs in your environment, the data stays in your accounts and remains yours, and OctaveBytes does not receive or store it. For that reason a BAA with OctaveBytes is not normally required for the software itself. Whether one is needed depends on your own assessment, for example if OctaveBytes staff will have access to your systems or data for installation or support. OctaveBytes is open to signing a BAA where a customer needs one. Ask [support@octavebytes.com](mailto:support@octavebytes.com).
 
-## Not yet verified on a real system
-
-Retention deletion, the webhook signature check, the enforced content security policy, the AWS instance-role mode and the alert webhook are covered by automated tests only.

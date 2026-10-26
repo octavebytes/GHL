@@ -1,6 +1,6 @@
 # Licence guide
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 How your organisation receives, installs and renews the connector licence, and what the licence and its notices mean. The licence applies only when the platform is switched on.
 

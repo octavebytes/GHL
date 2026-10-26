@@ -1,6 +1,6 @@
 # Frequently asked questions
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 ## About the product
 

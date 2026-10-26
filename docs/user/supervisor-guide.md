@@ -1,12 +1,12 @@
 # Supervisor guide
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
-What supervisors can do with release v0.2.0. The connector does not add its own supervisor screens: live monitoring uses Amazon Connect's own tools, and the connector works alongside them. Team leads who also manage settings or seats use the [admin guide](../admin/admin-guide.md).
+What supervisors can do with release v2.0.0. The connector does not add its own supervisor screens: live monitoring uses Amazon Connect's own tools, and the connector works alongside them. Team leads who also manage settings or seats use the [admin guide](../admin/admin-guide.md).
 
 ## Listen in and barge in (Amazon Connect)
 
-Status: **Live (earlier build)**. Silent monitoring and barge-in were tried on the test system with the build before v0.2.0.
+Status: **Available**.
 
 What you need (your Amazon Connect administrator sets this up):
 - a security profile that allows real-time metrics, real-time contact monitoring and barge-in, and access to the Contact Control Panel;

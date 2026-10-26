@@ -1,6 +1,6 @@
 # Quick reference card
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 A one-page summary for agents. Full guide: [agent guide](agent-guide.md).
 

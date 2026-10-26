@@ -1,6 +1,6 @@
 # Endpoints
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 The addresses the connector server answers on, for network, firewall and security reviews. All are served through nginx over HTTPS on the connector's address. These endpoints serve the call panel, the softphone window and the admin console. They are not a general-purpose API for other systems, and their request and response shapes may change between releases. The WebSocket messages are described in the [protocol summary](protocol-summary.md).
 

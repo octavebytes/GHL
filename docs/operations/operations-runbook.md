@@ -1,6 +1,6 @@
 # Operations runbook
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 Day-to-day running of the connector: checks, logs, backups and the usual incidents. Commands run on the server as root unless stated. Paths are under `/opt/ob-ghl-connector/backend/`. Never copy the contents of `.env`, `data/` or `config/` into email, chat or tickets.
 

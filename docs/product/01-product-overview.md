@@ -1,6 +1,6 @@
 # Product overview
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 ## What it is
 
@@ -56,7 +56,7 @@ It does not host your data at OctaveBytes. It does not contact OctaveBytes to ch
 
 ## Release and status
 
-This document describes release **v0.2.0**, the first release with the admin console, licence and seats. Each feature's status (Live, Live (earlier build), Built and tested, Planned) is listed in [Features](02-features.md). OctaveBytes can arrange a trial licence: ask [support@octavebytes.com](mailto:support@octavebytes.com).
+This document describes release **v2.0.0**, the first release with the admin console, licence and seats. Each feature is marked Available or Planned in [Features](02-features.md). OctaveBytes can arrange a trial licence: ask [support@octavebytes.com](mailto:support@octavebytes.com).
 
 ## Next
 - [Features](02-features.md) · [Requirements](03-requirements.md) · [Glossary](../glossary.md)

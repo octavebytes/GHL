@@ -1,6 +1,6 @@
 # Data and retention
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 Every place the connector keeps data, what it holds and for how long. Paths are under `/opt/ob-ghl-connector/backend/` unless stated. "Retention" means automatic deletion by the connector. Anything without it is kept until you delete it. Summary for non-technical readers: [security and privacy](../product/04-security-and-privacy.md).
 

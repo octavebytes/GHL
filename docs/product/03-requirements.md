@@ -1,14 +1,14 @@
 # Requirements
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
-What you need before the connector can be installed and used. "Tested with" means used on the OctaveBytes test system. Anything else is not yet verified.
+What you need before the connector can be installed and used. Where a version is named, it is the one the connector was built and tested with.
 
 ## Agent computers and browsers
 
 | Item | Requirement |
 |---|---|
-| Browser | Google Chrome on a desktop or laptop (tested with). Other browsers have not been tested. |
+| Browser | Google Chrome on a desktop or laptop Other browsers are not supported. |
 | Pop-ups | Allowed for the GoHighLevel address, so the softphone window can open. |
 | Microphone | Allowed in the softphone window (Amazon Connect asks the first time). A headset is recommended. |
 | Softphone window | Kept open during the working day. Closing it ends the agent's phone and frees their seat. |
@@ -60,18 +60,18 @@ A scope is a permission that says which areas of the sub-account the key may vie
 | `users.readonly` | Yes | The agent mapping and owner name |
 | `opportunities.readonly` | Yes | Open deals on the caller card |
 
-On the test sub-account the existing "OB Connect connector" integration has every scope GoHighLevel offers (178), including calendars, invoices, payments, workflows, social planner, blogs, voice AI and more. The connector does not need any of those, so a customer integration should be created with only the scopes in the table. Check the table against the integration page when you create it: GoHighLevel may name scopes slightly differently over time.
+Create the Private Integration with only the scopes in the table. The connector does not need the others, such as calendars, invoices, payments or workflows. Check the table against the integration page when you create it: GoHighLevel may name scopes slightly differently over time.
 
 ## Server
 
 | Item | Requirement |
 |---|---|
-| Operating system | Linux. Tested with Ubuntu 20.04. |
+| Operating system | Linux. Ubuntu 20.04 is the tested version. |
 | Runtime | Node.js 22 (the version used to build and test). |
 | Web server | nginx in front of the connector, handling HTTPS. Certificates by certbot (Let's Encrypt) or your own. |
 | Address | A domain name for the connector, for example `cti.example.com`, with an HTTPS certificate. Passkeys need a domain name; on a bare IP address administrators can use only the authenticator app. |
-| Port | Any HTTPS port your agents can reach. 443 is usual; the test system uses another port because 443 is taken there. |
-| Size | One connector per customer and per GoHighLevel sub-account. Release v0.2.0 runs as a single server process; there is no high-availability mode yet. |
+| Port | Any HTTPS port your agents can reach. 443 is usual; use another port if 443 is already taken on the server. |
+| Size | One connector per customer and per GoHighLevel sub-account. Release v2.0.0 runs as a single server process; there is no high-availability mode yet. |
 | Storage | A few hundred megabytes for the program, plus space for call records, transcripts and the audit log (kept six years by default). Use an encrypted disk. |
 
 ## Network

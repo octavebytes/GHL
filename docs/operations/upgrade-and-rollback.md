@@ -1,8 +1,8 @@
 # Upgrade and rollback
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
-How to install a new release, and how to go back. Status: **Live**: this procedure was used to install v0.2.0 on the OctaveBytes test system.
+How to install a new release, and how to go back.
 
 ## What an update keeps
 
@@ -72,7 +72,7 @@ systemctl start ob-ghl-connector
 curl -s http://127.0.0.1:4320/health
 ```
 
-The platform packages in `/opt/ob-ghl-connector/node_modules/@octavebytes/` stay at the newer version with this method. Status: **not tried**. The reinstall method above is the one to use.
+The platform packages in `/opt/ob-ghl-connector/node_modules/@octavebytes/` stay at the newer version with this method. Use the reinstall method above instead.
 
 Whichever method you use:
 - Do not use `tar --no-same-owner` without fixing the owners afterwards: files owned only by root cannot be read by the service user, and the softphone window then stays blank.

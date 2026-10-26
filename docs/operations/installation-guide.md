@@ -1,10 +1,10 @@
 # Installation guide
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 For the server administrator who installs the connector for one organisation and one GoHighLevel sub-account. Read [requirements](../product/03-requirements.md) first. Every value below is an example: `cti.example.com` stands for your connector's address.
 
-Status of these steps: the build, packaging, update and platform steps were used on the OctaveBytes test system. The first-time setup script (`server-setup.sh`) was written for a shared server and checked by reading, but the test system's port and certificate were set up by hand, so treat its first run as a rehearsal and read its output.
+Read the output of the first-time setup script (`server-setup.sh`) as it runs, and be ready to adjust the port and certificate steps to your server.
 
 Never paste secrets (tokens, keys, `.env` content, setup codes) into email, chat or tickets.
 

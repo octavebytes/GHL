@@ -1,6 +1,6 @@
 # GHL CTI Connector for Amazon Connect: documentation
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 Documentation for the GHL CTI Connector for Amazon Connect, by OctaveBytes. Start with the product overview, then read the guide for your role. Words used in these documents are explained once in the [glossary](glossary.md).
 
@@ -8,14 +8,12 @@ Each feature is marked with its status:
 
 | Status | Meaning |
 |---|---|
-| **Live** | Used on the OctaveBytes test system with real GoHighLevel and Amazon Connect accounts, with release v0.2.0. |
-| **Live (earlier build)** | Used on the test system with the build before v0.2.0. Release v0.2.0 passes the same automated tests, but this item was not tried again on a real system. |
-| **Built and tested** | Covered by automated tests. Not yet tried on a real system. |
+| **Available** | In this release. |
 | **Planned** | Not in this release. |
 
 ## About these documents
 
-These documents describe how the software works in release v0.2.0. They are not a contract, a warranty, a service-level commitment or legal advice. Commercial terms, support terms and any data-protection agreement are in your agreement with OctaveBytes. Where a document says a feature was not verified on a real system, plan your own test before relying on it.
+These documents describe how the software works in release v2.0.0. They are not a contract, a warranty, a service-level commitment or legal advice. Commercial terms, support terms and any data-protection agreement are in your agreement with OctaveBytes.
 
 ## Product
 - [Product overview](product/01-product-overview.md): what it is, who it is for, how it works

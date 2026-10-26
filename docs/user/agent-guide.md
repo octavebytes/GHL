@@ -1,6 +1,6 @@
 # Agent guide
 
-Document version 1.0 · 25 October 2026 · Applies to release v0.2.0
+Document version 1.0 · 25 October 2026 · Applies to release v2.0.0
 
 How to take and place calls from GoHighLevel. Your administrator may have switched some features off. If a button described here is missing, that is why. One page summary: [quick reference card](quick-reference.md).
 
